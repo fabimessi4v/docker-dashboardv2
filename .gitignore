@@ -1,0 +1,25 @@
+# --- PYTHON / BACKEND IGNORES ---
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+var/
+bin/
+.env
+
+# --- DOCKER / BUILD IGNORES ---
+.dockerignore
+
+# --- FRONTEND (REACT / VITE) IGNORES ---
+frontend/node_modules/
+frontend/dist/
+frontend/.eslintcache
+frontend/.env*.local
+
+# --- LOCAL HARDWARE CONFIGS ---
+# Puedes ignorar tu archivo personal y dejar un ejemplo en el repositorio
+external_services.json

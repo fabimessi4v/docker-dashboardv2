@@ -1,0 +1,19 @@
+[
+  {
+    "name": "SSH Daemon",
+    "port": 22,
+    "description": "Terminal de acceso remoto seguro"
+  },
+  {
+    "name": "qBittorrent Web UI",
+    "port": 8080,
+    "protocol": "http",
+    "description": "Cliente de BitTorrent y gestor de descargas"
+  },
+  {
+    "name": "FTP Server",
+    "port": 21,
+    "protocol": "ftp",
+    "description": "Servidor de transferencia de archivos"
+  }
+]

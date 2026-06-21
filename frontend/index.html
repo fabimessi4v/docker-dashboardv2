@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOCK.MONITOR // CONTROL INDUSTRIAL (MUI)</title>
+    
+    <!-- Google Fonts for JetBrains Mono, Roboto, and Material Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;700;800&family=Roboto:300;400;500;700&family=Material+Icons&display=swap" rel="stylesheet">
+    
+    <!-- Custom styling overrides (CssBaseline manages body bg, scanline is handled inside React) -->
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'JetBrains Mono', 'Roboto', monospace;
+        letter-spacing: -0.02em;
+        overflow-x: hidden;
+      }
+
+      /* scanlines overlay for industrial/surgical feel */
+      .scanlines {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100vw;
+          height: 100vh;
+          background: linear-gradient(
+              rgba(18, 16, 16, 0) 50%, 
+              rgba(0, 0, 0, 0.12) 50%
+          ), linear-gradient(
+              90deg,
+              rgba(255, 0, 0, 0.02),
+              rgba(0, 255, 0, 0.01),
+              rgba(0, 0, 255, 0.02)
+          );
+          background-size: 100% 4px, 6px 100%;
+          z-index: 9999;
+          pointer-events: none;
+          transition: opacity 0.3s ease;
+      }
+
+      /* custom pulsing animations */
+      .pulsing-beacon {
+          animation: beacon-glow 2s infinite ease-in-out;
+      }
+
+      @keyframes beacon-glow {
+          0% { opacity: 0.3; filter: drop-shadow(0 0 1px currentColor); }
+          50% { opacity: 1; filter: drop-shadow(0 0 6px currentColor); }
+          100% { opacity: 0.3; filter: drop-shadow(0 0 1px currentColor); }
+      }
+
+      /* custom terminal screen for container logs */
+      .terminal-screen {
+          background-color: #050709 !important;
+          border: 1px solid #27313d;
+          padding: 1rem;
+          overflow-y: auto;
+          font-family: 'JetBrains Mono', monospace;
+          color: #00ff66;
+          font-size: 0.85rem;
+          border-radius: 4px;
+          height: 400px;
+          max-height: 50vh;
+          box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+      }
+
+      .terminal-screen pre {
+          white-space: pre-wrap;
+          word-break: break-all;
+          margin: 0;
+      }
+
+      /* Scrollbar tweaks */
+      ::-webkit-scrollbar {
+          width: 6px;
+          height: 6px;
+      }
+
+      ::-webkit-scrollbar-track {
+          background: #0d1117;
+      }
+
+      ::-webkit-scrollbar-thumb {
+          background: #212830;
+          border-radius: 3px;
+      }
+
+      ::-webkit-scrollbar-thumb:hover {
+          background: #30363d;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Mount target -->
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
